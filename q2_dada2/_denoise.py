@@ -75,6 +75,8 @@ _valid_inputs = {
     'demultiplexed_seqs': _SKIP,
     'homopolymer_gap_penalty': _SKIP,
     'band_size': _SKIP,
+    'min_overlap': _WHOLE_NUM,
+    'max_mismatch': _WHOLE_NUM
 }
 
 
