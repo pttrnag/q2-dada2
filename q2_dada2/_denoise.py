@@ -219,6 +219,7 @@ def denoise_paired(demultiplexed_seqs: SingleLanePerSamplePairedEndFastqDirFmt,
                    trim_left_f: int = 0, trim_left_r: int = 0,
                    max_ee_f: float = 2.0, max_ee_r: float = 2.0,
                    trunc_q: int = 2,
+                   min_overlap: int = 12, max_mismatch: int = 0,
                    chimera_method: str = 'consensus',
                    min_fold_parent_over_abundance: float = 1.0,
                    n_threads: int = 1, n_reads_learn: int = 1000000,
@@ -254,7 +255,8 @@ def denoise_paired(demultiplexed_seqs: SingleLanePerSamplePairedEndFastqDirFmt,
                str(trim_left_f), str(trim_left_r),
                str(max_ee_f), str(max_ee_r), str(trunc_q),
                str(chimera_method), str(min_fold_parent_over_abundance),
-               str(n_threads), str(n_reads_learn)]
+               str(n_threads), str(n_reads_learn),
+               str(min_overlap), str(max_mismatch)]
         try:
             run_commands([cmd])
         except subprocess.CalledProcessError as e:

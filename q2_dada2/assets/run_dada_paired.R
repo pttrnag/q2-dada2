@@ -124,6 +124,8 @@ chimeraMethod <- args[[14]]
 minParentFold <- as.numeric(args[[15]])
 nthreads <- as.integer(args[[16]])
 nreads.learn <- as.integer(args[[17]])
+min.Overlap <- as.integer(args[[18]])
+max.Mismatch <- as.integer(args[[19]])
 
 ### VALIDATE ARGUMENTS ###
 
@@ -206,7 +208,7 @@ for(j in seq(length(filtsF))) {
   ddF <- dada(drpF, err=errF, multithread=multithread, verbose=FALSE)
   drpR <- derepFastq(filtsR[[j]])
   ddR <- dada(drpR, err=errR, multithread=multithread, verbose=FALSE)
-  mergers[[j]] <- mergePairs(ddF, drpF, ddR, drpR)
+  mergers[[j]] <- mergePairs(ddF, drpF, ddR, drpR, min.Overlap, max.Mismatch)
   denoisedF[[j]] <- getN(ddF)
   cat(".")
 }
