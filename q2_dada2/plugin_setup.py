@@ -122,7 +122,9 @@ plugin.methods.register_function(
                 'max_ee_f': qiime2.plugin.Float,
                 'max_ee_r': qiime2.plugin.Float,
                 'trunc_q': qiime2.plugin.Int,
-                'chimera_method': qiime2.plugin.Str %
+                'chimera_method': qiime2.plugin.Str,
+                'min_overlap': qiime2.plugin.Int,
+                'max_mismatch': qiime2.plugin.Int %
                 qiime2.plugin.Choices(_CHIM_OPT),
                 'min_fold_parent_over_abundance': qiime2.plugin.Float,
                 'n_threads': qiime2.plugin.Int,
