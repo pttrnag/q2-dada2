@@ -225,6 +225,8 @@ def denoise_paired(demultiplexed_seqs: SingleLanePerSamplePairedEndFastqDirFmt,
                    n_threads: int = 1, n_reads_learn: int = 1000000,
                    hashed_feature_ids: bool = True
                    ) -> (biom.Table, DNAIterator, qiime2.Metadata):
+    
+    print("You are using the correct version of dada2!")
     _check_inputs(**locals())
     if trunc_len_f != 0 and trim_left_f >= trunc_len_f:
         raise ValueError("trim_left_f (%r) must be smaller than trunc_len_f"
